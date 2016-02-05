@@ -13,7 +13,7 @@
  * Version:     0.1.0
  * Author:      Darrin Boutote
  * Author URI:  http://darrinb.com
- * Text Domain: adv-term-fields-images
+ * Text Domain: atf-images
  * Domain Path: /lang
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -71,7 +71,7 @@ function _atf_images_plugin_deactivate() {
 function _atf_images_plugin_admin_notice() {
 	echo '<div class="error"><p>'
 		. sprintf(
-			__( '%1$s requires the %2$s plugin to function correctly. Unable to activate at this time.', 'wptt' ),
+			__( '%1$s requires the %2$s plugin to function correctly. Unable to activate at this time.', 'atf-images' ),
 			'<strong>' . esc_html( 'Advanced Term Fields: Featured Images' ) . '</strong>',
 			'<strong>' . esc_html( 'Advanced Term Fields' ) . '</strong>'
 			)
