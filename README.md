@@ -4,7 +4,7 @@ Easily assign featured images for categories, tags, and custom taxonomy terms.
 
 Advanced Term Fields: Featured Images extends the Advanced Term Fields framework to give users the ability to easily add and manage featured images for any category, tag, or custom taxonomy.
 
-![term images](assets/img.jpg?raw=true "Featured Images!")
+![term images](assets/screenshot.png?raw=true "Featured Images!")
 
 # Installation
 
