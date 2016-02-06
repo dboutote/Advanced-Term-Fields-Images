@@ -4,7 +4,7 @@ Easily assign featured images for categories, tags, and custom taxonomy terms.
 
 Advanced Term Fields: Featured Images extends the Advanced Term Fields framework to give users the ability to easily add and manage featured images for any category, tag, or custom taxonomy.
 
-![term images](assets/screenshot.png?raw=true "Featured Images!")
+![term admin](assets/screenshot-1.png?raw=true "Featured Images!")
 
 # Installation
 
@@ -23,9 +23,10 @@ Advanced Term Fields: Featured Images extends the Advanced Term Fields framework
 
 # Usage
 
-This is an extension of the Advanced Term Fields framework.  To use, the Advanced Term Fields plugin must be installed on your project.  
+This is an extension of the Advanced Term Fields framework.  To use, the Advanced Term Fields plugin must be installed on your project.
 
-You can find the plugin here: 
+You can find the framework here:
+
 * On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 * On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
 
@@ -37,9 +38,10 @@ The plugin's official page: http://darrinb.com/advanced-term-fields-images
 
 ### Does this plugin depend on any others?
 
-Yes, this plugin is an extension of the Advanced Term Fields framework.  You'll need to install that plugin to handle all base functionality. 
+Yes, this plugin is an extension of the Advanced Term Fields framework.  You'll need to install that plugin to handle all base functionality.
 
-It can be found here: 
+It can be found here:
+
 * On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 * On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
 
