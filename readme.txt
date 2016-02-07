@@ -61,9 +61,9 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 == Screenshots ==
 
 1. Custom column to the Tag List Table.
-2. Select your color using the native WordPress color picker.
+2. Select your image using the native WordPress media picker.
 3. Accessible from the Quick Edit form
-4. Color picker on the Edit Tag screen.
+4. Featured Image field on the Edit Tag screen.
 
 
 == Changelog ==
