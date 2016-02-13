@@ -3,7 +3,7 @@ Contributors: dbmartin
 Tags: termmeta, term_meta, term, meta, metadata, taxonomy, colors
 Requires at least: 4.4
 Tested up to: 4.4.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,21 +13,23 @@ Easily assign featured images for categories, tags, and custom taxonomy terms. T
 
 Advanced Term Fields: Featured Images extends the Advanced Term Fields framework to give users the ability to easily add and manage featured images for any category, tag, or custom taxonomy.
 
-
 = Usage =
 
-This is an extension of the Advanced Term Fields framework.  To use, the Advanced Term Fields plugin must be installed on your project.
+This is an extension of the **Advanced Term Fields** framework.  To use, the Advanced Term Fields plugin must be installed on your project.
 
-You can find the framework here:
+You can find the plugin here: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 
-* On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
-* On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
+= Check Out Other Extensions =
+
+* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Color-code your terms!
+* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/) Dashicons for your terms.
+* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Featured images for terms!
 
 == Installation ==
 
 = From the WordPress.org plugin repository: =
 
-* Download and install using the built in WordPress plugin installer.
+* [Download](https://wordpress.org/plugins/advanced-term-fields-featured-images/) and install using the built in WordPress plugin installer.
 * Activate in the "Plugins" area of your admin by clicking the "Activate" link.
 * No further setup or configuration is necessary.
 
@@ -67,6 +69,12 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 
 
 == Changelog ==
+
+= 0.1.1 =
+* Added `$meta_slug` property for localizing js files and HTML attributes for form fields.
+* Added check for update functionaliy to test for latest version.
+* Changed meta field key to protected.
+* Removed final keyword from Adv_Term_Fields_Images class.
 
 = 0.1.0 =
 * Initial release
