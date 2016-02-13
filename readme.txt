@@ -46,7 +46,7 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 
 == Frequently Asked Questions ==
 
-= Where can I find additional additional documentation? =
+= Where can I find additional documentation? =
 
 The plugin's official page: http://darrinb.com/advanced-term-fields-images
 
@@ -63,7 +63,7 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 
 = Are there other extensions? =
 
-Yep!  You can also check out:
+Yep!  This is a list of all current extensions:
 
 * [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
 * [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
