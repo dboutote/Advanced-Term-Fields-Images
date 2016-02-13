@@ -35,22 +35,22 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 
 ## Frequently Asked Questions
 
-##### Where can I find additional additional documentation?
+#### Where can I find additional additional documentation?
 
 The plugin's official page: http://darrinb.com/advanced-term-fields-images
 
-##### Does this plugin depend on any others?
+#### Does this plugin depend on any others?
 
 Yes, this plugin is an extension of the **Advanced Term Fields** framework.  You'll need to install that plugin to handle all base functionality. You can find that plugin here:
 
 * On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 * On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
 
-##### Does this create/modify/destroy database tables?
+#### Does this create/modify/destroy database tables?
 
 This leverages the term meta capabilities added in WordPress 4.4.  No database modifications needed!
 
-##### Are there other extensions?
+#### Are there other extensions?
 
 Yep!  You can also check out:
 * [Advanced Term Fields: Colors](https://github.com/dboutote/Advanced-Term-Fields-Colors)
