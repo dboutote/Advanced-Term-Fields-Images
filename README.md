@@ -33,7 +33,7 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 
 ![Form field on Add Tag form](assets/screenshot-2.jpg?raw=true "New form field")
 
-### Check Out Other Extensions
+#### Check Out Other Extensions
 
 * [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Color-code your terms!
 * [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/) Dashicons for your terms.
