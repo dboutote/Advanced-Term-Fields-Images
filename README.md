@@ -24,9 +24,7 @@ Easily assign featured images for categories, tags, and custom taxonomy terms. T
 
 ## Usage
 
-This is an extension of the **Advanced Term Fields** framework.  To use, the Advanced Term Fields plugin must be installed on your project.
-
-You can find the plugin here:
+This is an extension of the **Advanced Term Fields** framework.  To use, the Advanced Term Fields plugin must be installed on your project. You can find that plugin here:
 
 * On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 * On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
@@ -44,9 +42,7 @@ The plugin's official page: http://darrinb.com/advanced-term-fields-images
 
 ##### Does this plugin depend on any others?
 
-Yes, this plugin is an extension of the **Advanced Term Fields** framework.  You'll need to install that plugin to handle all base functionality.
-
-You can find the plugin here:
+Yes, this plugin is an extension of the **Advanced Term Fields** framework.  You'll need to install that plugin to handle all base functionality. You can find that plugin here:
 
 * On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
 * On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
