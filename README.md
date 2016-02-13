@@ -33,13 +33,6 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 
 ![Form field on Add Tag form](assets/screenshot-2.jpg?raw=true "New form field")
 
-#### Check Out Other Extensions
-
-* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Color-code your terms!
-* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/) Dashicons for your terms.
-* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Featured images for terms!
-
-
 ## Frequently Asked Questions
 
 ##### Where can I find additional additional documentation?
@@ -56,3 +49,10 @@ Yes, this plugin is an extension of the **Advanced Term Fields** framework.  You
 ##### Does this create/modify/destroy database tables?
 
 This leverages the term meta capabilities added in WordPress 4.4.  No database modifications needed!
+
+##### Are there other extensions?
+
+Yep!  You can also check out:
+* [Advanced Term Fields: Colors](https://github.com/dboutote/Advanced-Term-Fields-Colors) Color-code your terms!
+* [Advanced Term Fields: Icons](https://github.com/dboutote/Advanced-Term-Fields-Icons) Dashicons for your terms.
+* [Advanced Term Fields: Featured Images](https://github.com/dboutote/Advanced-Term-Fields-Images) Featured images for terms!
