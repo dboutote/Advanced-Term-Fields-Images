@@ -24,9 +24,9 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 
 = Check Out Other Extensions =
 
-* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Color-code your terms!
-* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/) Dashicons for your terms.
-* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Featured images for terms!
+* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
+* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
 
 == Installation ==
 
@@ -65,9 +65,9 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 
 Yep!  You can also check out:
 
-* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Color-code your terms!
-* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/) Dashicons for your terms.
-* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/) Featured images for terms!
+* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
+* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
 
 == Screenshots ==
 

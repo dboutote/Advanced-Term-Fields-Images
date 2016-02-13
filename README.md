@@ -53,6 +53,6 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 ##### Are there other extensions?
 
 Yep!  You can also check out:
-* [Advanced Term Fields: Colors](https://github.com/dboutote/Advanced-Term-Fields-Colors) Color-code your terms!
-* [Advanced Term Fields: Icons](https://github.com/dboutote/Advanced-Term-Fields-Icons) Dashicons for your terms.
-* [Advanced Term Fields: Featured Images](https://github.com/dboutote/Advanced-Term-Fields-Images) Featured images for terms!
+* [Advanced Term Fields: Colors](https://github.com/dboutote/Advanced-Term-Fields-Colors)
+* [Advanced Term Fields: Icons](https://github.com/dboutote/Advanced-Term-Fields-Icons)
+* [Advanced Term Fields: Featured Images](https://github.com/dboutote/Advanced-Term-Fields-Images)
