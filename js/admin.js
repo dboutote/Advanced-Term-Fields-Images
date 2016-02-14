@@ -141,7 +141,7 @@
     /**
      * Deleting the thumbnail from the add form
      */
-    $('#term-thumbnail_id-div').on('click', '.del-term-thumbnail', function (e) {
+    $('#term-thumbnail-id-div').on('click', '.del-term-thumbnail', function (e) {
         e.preventDefault();
         var $el = $(e.currentTarget);
         var $parent = $el.closest('.inside');

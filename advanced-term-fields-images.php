@@ -5,12 +5,12 @@
  * @package Advanced_Term_Fields_Images
  *
  * @license     http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
- * @version     0.1.0
+ * @version     0.1.1
  *
  * Plugin Name: Advanced Term Fields: Featured Images
  * Plugin URI:  http://darrinb.com/plugins/advanced-term-fields-images
  * Description: Easily assign featured images for categories, tags, and custom taxonomy terms.
- * Version:     0.1.0
+ * Version:     0.1.1
  * Author:      Darrin Boutote
  * Author URI:  http://darrinb.com
  * Text Domain: atf-images
@@ -18,6 +18,7 @@
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
+
 
 // No direct access
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,59 +29,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 /**
+ * @internal Nobody should be able to overrule the real version number
+ * as this can cause serious issues, so no if ( ! defined() )
+ *
+ * @since 0.1.1
+ */
+define( 'ATF_IMAGES_VERSION', '0.1.1' );
+
+
+if ( ! defined( 'ATF_IMAGES_FILE' ) ) {
+	define( 'ATF_IMAGES_FILE', __FILE__ );
+}
+
+
+/**
+ * Load Utilities
+ *
+ * @since 0.1.1
+ */
+include dirname( __FILE__ ) . '/inc/functions.php';
+
+
+/**
  * Checks compatibility
  *
- * @uses _atf_images_plugin_deactivate()
- * @uses _atf_images_plugin_admin_notice()
- *
  * @since 0.1.0
- *
- * @return void
  */
-function _atf_images_compatibility_check(){
-	if ( ! class_exists( 'Advanced_Term_Fields' ) ) :
-		add_action( 'admin_init', '_atf_images_plugin_deactivate');
-		add_action( 'admin_notices', '_atf_images_plugin_admin_notice');
-		return;
-	endif;
-
-	define( 'ATF_IMAGES_COMPAT', true );
-}
 add_action( 'plugins_loaded', '_atf_images_compatibility_check', 99 );
-
-
-/**
- * Deactivates plugin
- *
- * @since 0.1.0
- *
- * @return void
- */
-function _atf_images_plugin_deactivate() {
-	deactivate_plugins( plugin_basename( __FILE__ ) );
-}
-
-
-/**
- * Displays deactivation notice
- *
- * @since 0.1.0
- *
- * @return void
- */
-function _atf_images_plugin_admin_notice() {
-	echo '<div class="error"><p>'
-		. sprintf(
-			__( '%1$s requires the %2$s plugin to function correctly. Unable to activate at this time.', 'atf-images' ),
-			'<strong>' . esc_html( 'Advanced Term Fields: Featured Images' ) . '</strong>',
-			'<strong>' . esc_html( 'Advanced Term Fields' ) . '</strong>'
-			)
-		. '</p></div>';
-
-	if ( isset( $_GET['activate'] ) ) {
-		unset( $_GET['activate'] );
-	}
-}
 
 
 /**
@@ -90,7 +65,7 @@ function _atf_images_plugin_admin_notice() {
  */
 function _atf_images_init() {
 
-	if( ! defined( 'ATF_IMAGES_COMPAT' ) ){ return; }
+	if ( ! _atf_images_compatibility_check() ){ return; }
 
 	include dirname( __FILE__ ) . '/inc/class-adv-term-fields-images.php';
 
@@ -99,3 +74,12 @@ function _atf_images_init() {
 
 }
 add_action( 'init', '_atf_images_init', 99 );
+
+
+/**
+ * Run actions on plugin upgrade
+ *
+ * @since 0.1.1
+ */
+add_action( "atf__thumbnail_id_version_upgraded", '_atf_images_version_upgraded_notice', 10, 5 );
+add_action( "atf__thumbnail_id_version_upgraded", '_atf_images_maybe_update_meta_key', 10, 5 );

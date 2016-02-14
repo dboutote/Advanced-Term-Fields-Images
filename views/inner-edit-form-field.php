@@ -4,6 +4,8 @@
  *
  * Displays the form field for editing terms.
  *
+ * @uses 'do_action' "adv_term_fields_show_inner_field_edit_{$this->meta_key}" filter.
+ *
  * @package Advanced_Term_Fields
  * @subpackage Adv_Term_Fields_Images\Views
  *
@@ -16,7 +18,7 @@ $btn_class = ( '' !== $thumbnail_id ) ? '' : 'button ';
 
 <div class="inside">
 
-	<input type="hidden" name="<?php echo esc_attr( $this->meta_key ); ?>" id="<?php echo esc_attr( $this->meta_key ); ?>" value="<?php echo $this->get_meta( $term->term_id ); ?>" size="20" />
+	<input type="hidden" name="<?php echo esc_attr( $this->meta_key ); ?>" id="<?php echo esc_attr( $this->meta_slug ); ?>" value="<?php echo $this->get_meta( $term->term_id ); ?>" size="20" />
 
 	<a title="<?php echo esc_attr_e('Set Featured Image');?>" href="#" id="set-term-thumbnail-add" data-update="<?php echo esc_attr_e('Set Featured Image');?>" data-choose="<?php echo esc_attr_e('Featured Image');?>" data-delete="<?php echo esc_attr_e('Remove featured image');?>" class="<?php echo $btn_class;?>set-term-thumbnail">
 
@@ -27,8 +29,7 @@ $btn_class = ( '' !== $thumbnail_id ) ? '' : 'button ';
 			if( $image_attributes ) {
 
 				$image = sprintf(
-					'<img data-%1$s="%2$s" data-id="%2$s" class="term-%1$s" src="%3$s" width="%4$s" height="%5$s" />',
-					$this->data_type,
+					'<img data-thumbnail="%1$s" data-id="%1$s" class="term-thumbnail" src="%2$s" width="%3$s" height="%4$s" />',
 					esc_attr( $thumbnail_id ),
 					esc_attr( $image_attributes[0] ),
 					esc_attr ($image_attributes[1] ),
@@ -41,7 +42,7 @@ $btn_class = ( '' !== $thumbnail_id ) ? '' : 'button ';
 
 		<?php else : ?>
 
-			<?php _e( 'Set Featured Image', 'adv-term-fields' ); ?>
+			<?php _e( 'Set Featured Image', 'atf-images' ); ?>
 
 		<?php endif; ?>
 
@@ -49,7 +50,7 @@ $btn_class = ( '' !== $thumbnail_id ) ? '' : 'button ';
 
 	<?php if( '' !== $thumbnail_id ) : ?>
 		<a title="<?php echo esc_attr_e('Remove Featured Image');?>" href="#" id="del-term-thumbnail-edit" class="del-term-thumbnail">
-			<?php _e( 'Remove Featured Image', 'adv-term-fields' ); ?>
+			<?php _e( 'Remove Featured Image', 'atf-images' ); ?>
 		</a>
 	<?php endif; ?>
 
