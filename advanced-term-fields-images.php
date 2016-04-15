@@ -5,12 +5,12 @@
  * @package Advanced_Term_Images
  *
  * @license     http://www.gnu.org/licenses/gpl-2.0.txt GPL-2.0+
- * @version     0.1.1
+ * @version     1.0
  *
  * Plugin Name: Advanced Term Images
  * Plugin URI:  http://darrinb.com/plugins/advanced-term-fields-images
  * Description: Easily assign featured images for categories, tags, and custom taxonomy terms.
- * Version:     0.1.1
+ * Version:     1.0
  * Author:      Darrin Boutote
  * Author URI:  http://darrinb.com
  * Text Domain: atf-images
@@ -34,7 +34,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 0.1.1
  */
-define( 'ATF_IMAGES_VERSION', '0.1.1' );
+define( 'ATF_IMAGES_VERSION', '1.0' );
 
 
 if ( ! defined( 'ATF_IMAGES_FILE' ) ) {
@@ -48,16 +48,6 @@ include dirname( __FILE__ ) . '/inc/class-advanced-term-images-utils.php';
 // check if we can activate
 add_action( 'plugins_loaded', array( 'Advanced_Term_Images_Utils', 'compatibility_check' ), 99 );
 
-/** 
- * Load core framework
- * 
- * Note: this replaces the Advanced Term Fields framework
- * @see https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/
- * 
- * @since 1.0
- */ 
-include dirname( __FILE__ ) . '/inc/class-advanced-term-fields.php';
-
 
 /**
  * Instantiates main Advanced Term Images class
@@ -67,6 +57,17 @@ include dirname( __FILE__ ) . '/inc/class-advanced-term-fields.php';
 function _atf_images_init() {
 
 	if( ! defined( 'ATF_IMAGES_IS_COMPATIBLE' ) || ! ATF_IMAGES_IS_COMPATIBLE ) { return; }
+	
+	/** 
+	 * Load core framework
+	 * 
+	 * Note: this replaces the Advanced Term Fields framework plugin
+	 *
+	 * @see https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/
+	 * 
+	 * @since 1.0
+	 */ 
+	include dirname( __FILE__ ) . '/inc/class-advanced-term-fields.php';	
 
 	include dirname( __FILE__ ) . '/inc/class-advanced-term-images.php';
 

@@ -332,19 +332,18 @@ abstract class Advanced_Term_Fields
 		foreach ( $this->_required_props  as $prop ) {
 			try {
 				$this->_check_required( $prop );
-			} catch (Exception $e) {
-
+			} catch ( \Exception $e) {
 				// exception message
 				$e_msg = $e->getMessage();
 
 				// message referencing parent plugin
-				$parent_msg = '<b>' . Advanced_Term_Images_Utils::$plugin_name . '</b> requires all inheriting classes set this property.';
+				$parent_msg = 'The <b>' . get_class() . '</b> class requires all inheriting classes set this property.';
 
 				// Which child plugin is causing the issue?
 				$child_plugin_file = $this->file;
 				$child_plugin_data = get_file_data( $child_plugin_file, array( 'Name' => 'Plugin Name' ), 'plugin' );
 				$child_plugin_name = ( ! empty($child_plugin_data['Name']) ) ? esc_html( $child_plugin_data['Name'] ) : '';
-				$child_msg = 'Unable to activate <b>' . $child_plugin_name . '</b>.';
+				$child_msg = 'Unable to activate plugin: <b>' . $child_plugin_name . '</b>.';
 
 				// displayed message
 				$display_msg = sprintf(
@@ -355,14 +354,19 @@ abstract class Advanced_Term_Fields
 					);
 
 				// deactivate the child plugin
-				add_action('admin_init', function() use ( $child_plugin_file ) {
+				add_action( 'admin_init', function() use ( $child_plugin_file ) {
 					deactivate_plugins( plugin_basename( $child_plugin_file ) );
-				});
+				} );
+
+				// hide the "plugin activated" notice
+				if ( isset( $_GET['activate'] ) ) {
+					unset( $_GET['activate'] );
+				}
 
 				// let the user know
-				add_action('admin_notices', function() use ( $display_msg ) {
+				add_action( 'admin_notices', function() use ( $display_msg ) {
 					echo $display_msg;
-				});
+				} );
 			}
 		}
 	}
@@ -393,10 +397,10 @@ abstract class Advanced_Term_Fields
 		if( empty( $cleaned_prop ) || is_null( $cleaned_prop ) ){
 			$output = sprintf(
 				'No value set for <code>%1$s::$%2$s</code>',
-				get_class($this),
+				get_class( $this ),
 				$prop
 				);
-			throw new Exception( $output );
+			throw new \Exception( $output );
 		}
 
 		return true;
@@ -433,13 +437,19 @@ abstract class Advanced_Term_Fields
 	 */
 	public function get_allowed_orderby_keys()
 	{
-		$keys = array(
+		$orig_keys = array(
 			$this->meta_key,
 			'meta_value',
 			'meta_value_num'
 			);
 
-		return apply_filters ( 'advanced_term_fields_allowed_orderby_keys', $keys, $this->meta_key );
+		// backwards compat
+		$keys = apply_filters ( "advanced_term_fields_allowed_orderby_keys", $orig_keys, $this->meta_key );
+
+		// @since 1.0
+		$keys = apply_filters ( "advanced_term_fields_{$this->meta_key}_allowed_orderby_keys", $keys, $orig_keys, $this->meta_key );
+
+		return $keys;
 	}
 
 
@@ -610,7 +620,6 @@ abstract class Advanced_Term_Fields
 	 */
 	public function add_column_value( $empty = '', $column_name = '', $term_id = 0 )
 	{
-
 		if ( empty( $_REQUEST['taxonomy'] ) || ( $this->custom_column_name !== $column_name ) || ! empty( $empty ) ) {
 			return;
 		}
@@ -664,7 +673,6 @@ abstract class Advanced_Term_Fields
 	public function sortable_columns( $columns = array() )
 	{
 		$columns[ $this->custom_column_name ] = $this->meta_key;
-
 		return $columns;
 	}
 
@@ -696,7 +704,7 @@ abstract class Advanced_Term_Fields
 		if ( ! empty( $allowed_taxonomies ) ) :
 			foreach ( $allowed_taxonomies as $tax_name ) {
 				add_action( "{$tax_name}_add_form_fields", array( $this, 'add_form_field' ) );
-				add_action( "{$tax_name}_edit_form_fields", array( $this, 'edit_form_field'), 10, 2 );
+				add_action( "{$tax_name}_edit_form_fields", array( $this, 'edit_form_field' ), 10, 2 );
 				add_action( 'quick_edit_custom_box', array( $this, 'quick_edit_form_field' ), 10, 3 );
 			}
 		endif;
@@ -728,9 +736,9 @@ abstract class Advanced_Term_Fields
 			return;
 		}
 
-		add_action( "adv_term_fields_show_inner_field_add_{$this->meta_key}", array($this, 'show_inner_field_add') );
-		add_action( "adv_term_fields_show_inner_field_edit_{$this->meta_key}", array($this, 'show_inner_field_edit'), 10, 2 );
-		add_action( "adv_term_fields_show_inner_field_qedit_{$this->meta_key}", array($this, 'show_inner_field_qedit'), 10, 3 );
+		add_action( "adv_term_fields_show_inner_field_add_{$this->meta_key}", array( $this, 'show_inner_field_add' ) );
+		add_action( "adv_term_fields_show_inner_field_edit_{$this->meta_key}", array( $this, 'show_inner_field_edit' ), 10, 2 );
+		add_action( "adv_term_fields_show_inner_field_qedit_{$this->meta_key}", array( $this, 'show_inner_field_qedit' ), 10, 3 );
 	}
 
 
@@ -864,7 +872,6 @@ abstract class Advanced_Term_Fields
 	 */
 	public function quick_edit_form_field( $column_name, $screen, $taxonomy = '' )
 	{
-
 		if( ! $taxonomy ) {
 			return;
 		}
@@ -956,12 +963,18 @@ abstract class Advanced_Term_Fields
 	 */
 	public function get_taxonomies()
 	{
-		$defaults = apply_filters( "advanced_term_fields_get_taxonomies_args", array( 'show_ui' => true ), $this->meta_key);
-		$defaults = apply_filters( "advanced_term_fields_{$this->meta_key}_get_taxonomies_args", $defaults, $this->meta_key);
+		$defaults = apply_filters( "advanced_term_fields_get_taxonomies_args", array( 'show_ui' => true ), $this->meta_key );
+		$defaults = apply_filters( "advanced_term_fields_{$this->meta_key}_get_taxonomies_args", $defaults, $this->meta_key );
 
-		$allowed_taxonomies = get_taxonomies( $defaults );
-
-		return apply_filters('advanced_term_fields_allowed_taxonomies', $allowed_taxonomies, $this->meta_key);
+		$orig_taxonomies = get_taxonomies( $defaults );
+		
+		// backward compat
+		$allowed_taxonomies = apply_filters( 'advanced_term_fields_allowed_taxonomies', $orig_taxonomies, $this->meta_key );
+		
+		// @since 1.0
+		$allowed_taxonomies = apply_filters( "advanced_term_fields_{$this->meta_key}_allowed_taxonomies", $allowed_taxonomies, $orig_taxonomies, $this->meta_key );
+		
+		return $allowed_taxonomies;
 	}
 
 
@@ -991,6 +1004,7 @@ abstract class Advanced_Term_Fields
 	 *
 	 * @access public
 	 *
+	 * @since 0.1.2 Added 'load-term.php' action call
 	 * @since 0.1.0
 	 *
 	 * @return void
@@ -1005,7 +1019,7 @@ abstract class Advanced_Term_Fields
 	/**
 	 * Loads js/css admin scripts
 	 *
-	 * Note: Only loads js/css on edit-tags.php
+	 * Note: Only loads js/css on edit-tags.php and term.php
 	 *
 	 * @access public
 	 *
@@ -1147,8 +1161,8 @@ abstract class Advanced_Term_Fields
 	 */
 	public function filter_terms_query()
 	{
-		add_filter( 'get_terms_args', array($this, 'filter_terms_args'), 10, 2 );
-		add_filter( 'terms_clauses', array($this, 'filter_terms_clauses'), 10, 3 );
+		add_filter( 'get_terms_args', array( $this, 'filter_terms_args' ), 10, 2 );
+		add_filter( 'terms_clauses', array( $this, 'filter_terms_clauses' ), 10, 3 );
 	}
 
 

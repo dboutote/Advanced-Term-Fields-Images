@@ -118,7 +118,7 @@ class Advanced_Term_Images_Utils
 	 * @return void
 	 */
 	public static function plugin_compatibility_notice()
-	{		
+	{
 		printf( '<div class="error"><p>%1$s</p></div>',
 			sprintf( __( '%1$s requires WordPress %2$s and PHP %3$s to function correctly. We detected WordPress %4$s and PHP %5$s. Unable to activate at this time.', 'atf-images' ),
 				'<strong>' . esc_html( self::$plugin_name ) . '</strong>',
@@ -148,7 +148,7 @@ class Advanced_Term_Images_Utils
 	 */
 	private static function compatible_version()
 	{
-		if ( version_compare( $GLOBALS['wp_version'], self::$required_wp_version, '>=' ) && 
+		if ( version_compare( $GLOBALS['wp_version'], self::$required_wp_version, '>=' ) &&
 			version_compare( PHP_VERSION, self::$required_php_version, '>=' )
 		) {
 			return true;
