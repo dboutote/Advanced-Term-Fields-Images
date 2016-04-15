@@ -1,12 +1,11 @@
 <?php
 
 /**
- * Adv_Term_Fields_Icons Class
+ * Advanced_Term_Images Class
  *
  * Adds icons for taxonomy terms.
  *
- * @package Advanced_Term_Fields
- * @subpackage Adv_Term_Fields_Images
+ * @package Advanced_Term_Images
  *
  * @since 0.1.0
  *
@@ -29,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 0.1.0
  *
  */
-class Adv_Term_Fields_Images extends Advanced_Term_Fields
+class Advanced_Term_Images extends \AdvancedTermImages\Advanced_Term_Fields
 {
 
 	/**
