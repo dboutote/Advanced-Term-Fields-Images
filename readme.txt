@@ -41,7 +41,7 @@ Use the native WordPress media picker to select a featured image for your term.
 
 = Where can I find additional documentation? =
 
-The plugin's official page: http://darrinb.com/advanced-term-images
+The plugin's official page: http://darrinb.com/plugins/advanced-term-images
 
 = Does this plugin depend on any others? =
 

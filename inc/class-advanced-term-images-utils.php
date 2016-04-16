@@ -232,7 +232,7 @@ class Advanced_Term_Images_Utils
 
 			$display_msg = sprintf(
 				'<div class="updated notice is-dismissible"><p><b>%1$s</b> has been upgraded to version <b>%2$s</b></p></div>',
-				__( 'Advanced Term Fields: Images', 'atf-images' ),
+				__( 'Advanced Term Images', 'atf-images' ),
 				$plugin_version
 			);
 
