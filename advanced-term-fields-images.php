@@ -42,10 +42,19 @@ if ( ! defined( 'ATF_IMAGES_FILE' ) ) {
 }
 
 
-// load utilities
+/**
+ * Loads Utilities
+ *
+ * @since 0.1.1
+ */
 include dirname( __FILE__ ) . '/inc/class-advanced-term-images-utils.php';
 
-// check if we can activate
+
+/**
+ * Checks compatibility
+ *
+ * @since 0.1.0
+ */
 add_action( 'plugins_loaded', array( 'Advanced_Term_Images_Utils', 'compatibility_check' ), 99 );
 
 
@@ -57,17 +66,16 @@ add_action( 'plugins_loaded', array( 'Advanced_Term_Images_Utils', 'compatibilit
 function _atf_images_init() {
 
 	if( ! defined( 'ATF_IMAGES_IS_COMPATIBLE' ) || ! ATF_IMAGES_IS_COMPATIBLE ) { return; }
-	
-	/** 
+
+	/**
 	 * Load core framework
-	 * 
-	 * Note: this replaces the Advanced Term Fields framework plugin
 	 *
+	 * Note: this replaces the Advanced Term Fields framework plugin
 	 * @see https://make.wordpress.org/plugins/2016/03/01/please-do-not-submit-frameworks/
-	 * 
+	 *
 	 * @since 1.0
-	 */ 
-	include dirname( __FILE__ ) . '/inc/class-advanced-term-fields.php';	
+	 */
+	include dirname( __FILE__ ) . '/lib/adv-term-fields/class-advanced-term-fields.php';
 
 	include dirname( __FILE__ ) . '/inc/class-advanced-term-images.php';
 
@@ -79,7 +87,7 @@ add_action( 'init', '_atf_images_init', 99 );
 
 
 /**
- * Run actions on plugin upgrade
+ * Runs actions on plugin upgrade
  *
  * @since 0.1.1
  */

@@ -287,6 +287,20 @@ abstract class Advanced_Term_Fields
 
 
 	/**
+	 * Directory Path to Class
+	 *
+	 * Used to include add|edit|quick-edit forms
+	 *
+	 * @see Advanced_Term_Fields::add_form_field()
+	 * @see Advanced_Term_Fields::edit_form_field()
+	 * @see Advanced_Term_Fields::quick_edit_form_field()
+	 *
+	 * @since 1.0
+	 */
+	private $lib_path = '';
+
+
+	/**
 	 * Constructor
 	 *
 	 * @access public
@@ -297,6 +311,8 @@ abstract class Advanced_Term_Fields
 	 */
 	public function __construct( $file = '' )
 	{
+		$this->lib_path = dirname( __FILE__ );
+
 		$this->file	    = $file;
 		$this->url	    = plugin_dir_url( $this->file );
 		$this->path     = plugin_dir_path( $this->file );
@@ -764,7 +780,7 @@ abstract class Advanced_Term_Fields
 	public function add_form_field( $taxonomy )
 	{
 		ob_start();
-		include trailingslashit( $this->path ) . 'views/add-form-field.php';
+		include trailingslashit( $this->lib_path ) . 'views/add-form-field.php';
 		$field = ob_get_contents();
 		ob_end_clean();
 
@@ -817,7 +833,7 @@ abstract class Advanced_Term_Fields
 	public function edit_form_field( $term, $taxonomy )
 	{
 		ob_start();
-		include trailingslashit( $this->path ) . 'views/edit-form-field.php';
+		include trailingslashit( $this->lib_path ) . 'views/edit-form-field.php';
 		$field = ob_get_contents();
 		ob_end_clean();
 
@@ -881,7 +897,7 @@ abstract class Advanced_Term_Fields
 		}
 
 		ob_start();
-		include trailingslashit( $this->path ) . 'views/quick-form-field.php';
+		include trailingslashit( $this->lib_path ) . 'views/quick-form-field.php';
 		$field = ob_get_contents();
 		ob_end_clean();
 
@@ -967,13 +983,13 @@ abstract class Advanced_Term_Fields
 		$defaults = apply_filters( "advanced_term_fields_{$this->meta_key}_get_taxonomies_args", $defaults, $this->meta_key );
 
 		$orig_taxonomies = get_taxonomies( $defaults );
-		
+
 		// backward compat
 		$allowed_taxonomies = apply_filters( 'advanced_term_fields_allowed_taxonomies', $orig_taxonomies, $this->meta_key );
-		
+
 		// @since 1.0
 		$allowed_taxonomies = apply_filters( "advanced_term_fields_{$this->meta_key}_allowed_taxonomies", $allowed_taxonomies, $orig_taxonomies, $this->meta_key );
-		
+
 		return $allowed_taxonomies;
 	}
 
@@ -1004,7 +1020,8 @@ abstract class Advanced_Term_Fields
 	 *
 	 * @access public
 	 *
-	 * @since 0.1.2 Added 'load-term.php' action call
+	 * @version 0.1.2 Added 'load-term.php' action call
+	 *
 	 * @since 0.1.0
 	 *
 	 * @return void

@@ -13,6 +13,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
+$meta_key = '_thumbnail_id';
+
 // remove our options
-delete_option( 'atf__thumbnail_id_version' );
-delete_options( '_thumbnail_id_key_updated' );
+delete_option( "atf_{$meta_key}_version" );
+delete_option( "atf_{$meta_key}_key_updated" );

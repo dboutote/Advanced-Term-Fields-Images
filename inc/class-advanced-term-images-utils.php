@@ -166,6 +166,8 @@ class Advanced_Term_Images_Utils
 	 * updates all old versions of the stored meta key. It will only be run once, on upgrade to any
 	 * version higher than 0.1.0.
 	 *
+	 * @since 1.0 namespaced option key to "atf_{$meta_key}_key_updated"
+	 *
 	 * @since 0.1.1
 	 *
 	 * @return mixed bool|integer False on failure, number of rows affected on success.
@@ -178,7 +180,17 @@ class Advanced_Term_Images_Utils
 			return;
 		}
 
+		/**
+		 * If the new key is set, return
+		 * @since 1.0
+		 */
+		if( get_option( "atf_{$meta_key}_key_updated" ) ) {
+			return;
+		}
+
 		if( get_option( "{$meta_key}_key_updated" ) ){
+			update_option( "atf_{$meta_key}_key_updated", get_option( "{$meta_key}_key_updated" ) );
+			delete_option( "{$meta_key}_key_updated" );
 			return;
 		}
 
@@ -194,7 +206,7 @@ class Advanced_Term_Images_Utils
 
 		if ( false !== $updated_keys ) {
 			$now = time();
-			update_option( "{$meta_key}_key_updated", $updated_keys . ':' . $now );
+			update_option( "atf_{$meta_key}_key_updated", $updated_keys . ':' . $now );
 		}
 
 		return $updated_keys;
@@ -214,8 +226,8 @@ class Advanced_Term_Images_Utils
 	 *
 	 * @return void
 	 */
-	public static function version_upgraded_notice( $updated, $db_version_key, $plugin_version, $db_version, $meta_key ){
-
+	public static function version_upgraded_notice( $updated, $db_version_key, $plugin_version, $db_version, $meta_key )
+	{
 		if ( $updated ) {
 
 			$display_msg = sprintf(
@@ -229,7 +241,6 @@ class Advanced_Term_Images_Utils
 			});
 
 		}
-
 	}
 
 }
