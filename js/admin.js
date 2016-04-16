@@ -2,7 +2,7 @@
 
 ( function ($) {
 	'use strict';
-	
+
     /**
      * Globals
      */
@@ -12,7 +12,7 @@
     var img_html;
     var del_link;
 	var atf_tag_form = $('#addtag');
-	
+
 
 	/**
 	 * Removes the delete link from the form
@@ -73,7 +73,7 @@
         }
         return link_html;
     };
-	
+
 	/**
 	 * Resets the Image form field
 	 *
@@ -83,7 +83,7 @@
 		atfResetThumbnailID( form );
 		atfResetSetLink( form );
 		atfClearDeleteLink( form );
-	};	
+	};
 
 
     $('.set-term-thumbnail').on('click', function (e) {
@@ -211,7 +211,7 @@
 
         $(':input[name="' + l10n_ATF_Images.meta_key + '"]', '.inline-edit-row').val(img_id).trigger('atf_change');;
     });
-	
+
 
 	/**
 	 * Resets the thumbnail fields
@@ -222,10 +222,10 @@
 		var form = $(this).parents('form');
 		if( form.hasClass('atf-submitted') &&  $('#ajax-response').html() == '' ) {
 			atfResetTagFormFeatImage( form );
-		}		
+		}
 	});
-	
-	
+
+
 	/**
 	 * Reset the featured image field after the form has been submitted
 	 *
@@ -234,14 +234,14 @@
 	 */
 	$( '#submit', atf_tag_form).click( function(){
 		var form = $(this).parents('form');
-		
+
 		if ( ! validateForm( form ) ) {
 			form.removeClass('atf-submitted');
 			return false;
 		} else {
 			form.addClass('atf-submitted');
 		}
-	});	
+	});
 
 
 })(jQuery);

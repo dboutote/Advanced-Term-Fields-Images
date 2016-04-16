@@ -1,12 +1,11 @@
 <?php
 
 /**
- * Adv_Term_Fields_Icons Class
+ * Advanced_Term_Images Class
  *
  * Adds icons for taxonomy terms.
  *
- * @package Advanced_Term_Fields
- * @subpackage Adv_Term_Fields_Images
+ * @package Advanced_Term_Images
  *
  * @since 0.1.0
  *
@@ -23,13 +22,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Adds featured images for taxonomy terms
  *
+ * @version 1.0   Changed to namespaced \AdvancedTermImages\Advanced_Term_Fields class.
  * @version 0.1.1 Added upgrade check. Changed $meta_key to protected. Added @var $meta_slug.
  * @version 0.1.0
  *
  * @since 0.1.0
  *
  */
-class Adv_Term_Fields_Images extends Advanced_Term_Fields
+class Advanced_Term_Images extends \AdvancedTermImages\Advanced_Term_Fields
 {
 
 	/**
@@ -64,7 +64,7 @@ class Adv_Term_Fields_Images extends Advanced_Term_Fields
 	 * @see Adv_Term_Fields_Images::enqueue_admin_scripts()
 	 * @see Adv_Term_Fields_Images\Views\(add|edit|qedit).php
 	 *
-	 * @since 0.1.2
+	 * @since 0.1.1
 	 *
 	 * @var string
 	 */
@@ -140,7 +140,7 @@ class Adv_Term_Fields_Images extends Advanced_Term_Fields
 	 *
 	 * @access public
 	 *
-	 * @since 0.1.2
+	 * @since 0.1.1
 	 *
 	 * @return void
 	 */
@@ -164,7 +164,7 @@ class Adv_Term_Fields_Images extends Advanced_Term_Fields
 	 *
 	 * @access public
 	 *
-	 * @since 0.1.2
+	 * @since 0.1.1
 	 *
 	 * @return void
 	 */
@@ -187,7 +187,7 @@ class Adv_Term_Fields_Images extends Advanced_Term_Fields
 	 *
 	 * @uses WordPress update_option()
 	 *
-	 * @since 0.1.2
+	 * @since 0.1.1
 	 *
 	 * @param string $db_version_key The database key for the plugin version.
 	 * @param string $plugin_version The most recent plugin version.
@@ -251,10 +251,10 @@ class Adv_Term_Fields_Images extends Advanced_Term_Fields
 		$term_id = ( ! empty( $_GET['tag_ID'] ) ) ? (int) $_GET['tag_ID'] : 0;
 
 		wp_localize_script( 'atf-images', 'l10n_ATF_Images', array(
-			'custom_column_name' => esc_html__( $this->custom_column_name ),
-			'meta_key'	         => esc_html__( $this->meta_key ),
-			'meta_slug'	         => esc_html__( $this->meta_slug ),
-			'data_type'	         => esc_html__( $this->data_type ),
+			'custom_column_name' => esc_html( $this->custom_column_name ),
+			'meta_key'	         => esc_html( $this->meta_key ),
+			'meta_slug'	         => esc_html( $this->meta_slug ),
+			'data_type'	         => esc_html( $this->data_type ),
 			'insertMediaTitle'   => esc_html__( 'Choose an Image', 'atf-images' ),
 			'insertIntoPost'     => esc_html__( 'Set featured image', 'atf-images' ),
 			'removeFromPost'     => esc_html__( 'Set featured image', 'atf-images' ),

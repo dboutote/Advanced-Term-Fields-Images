@@ -1,32 +1,32 @@
-=== Advanced Term Fields: Featured Images ===
+=== Advanced Term Images ===
 Contributors: dbmartin
-Tags: termmeta, term_meta, term, meta, metadata, taxonomy, colors
+Tags: term-meta, term, meta, metadata, taxonomy, image, images, featured-images, category-images
 Requires at least: 4.4
-Tested up to: 4.4.1
-Stable tag: 0.1.1
+Tested up to: 4.5
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily assign featured images for categories, tags, and custom taxonomy terms. Term meta, with images!
+Easily add featured images to your categories, tags, and custom taxonomy terms. Supports all taxonomies!
 
 == Description ==
 
-**Advanced Term Fields: Featured Images** extends the Advanced Term Fields framework to give users the ability to easily add and manage featured images for any category, tag, or custom taxonomy.
+**Advanced Term Images** gives users the ability to easily add and manage featured images for categories, tags, and custom taxonomies.
+
+**Update:** As of version 1.0 this plugin no longer relies on the Advanced Term Fields framework. All functionality from that framework has been incorporated within this plugin.
 
 = Usage =
 
-This is an extension of the **Advanced Term Fields** framework.  To use, the Advanced Term Fields plugin must be installed on your project. You can find that plugin here:
+Once you've installed and activated the plugin, you should see a new form field in your edit tags screen.  (See the Screenshots tab.)
 
-* On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
-* On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
+Use the native WordPress media picker to select a featured image for your term.
 
-Once you've installed and activated the ATF and ATF: Images plugins, you should see a new form field in your edit tags screen.  (See the Screenshots tab.)
+= Also Check Out: =
 
-= Check Out Other Extensions =
-
-* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
-* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
-* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Colors](https://wordpress.org/plugins/advanced-term-fields-colors/)
+* [Advanced Term Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
+* [Advanced Term Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Locks](https://wordpress.org/plugins/advanced-term-fields-locks/)
 
 == Installation ==
 
@@ -36,48 +36,45 @@ Once you've installed and activated the ATF and ATF: Images plugins, you should 
 * Activate in the "Plugins" area of your admin by clicking the "Activate" link.
 * No further setup or configuration is necessary.
 
-= From GitHub: =
-
-* Download the [latest stable version](https://github.com/dboutote/Advanced-Term-Fields-Images/archive/master.zip).
-* Extract the zip folder to your plugins directory.
-* Activate in the "Plugins" area of your admin by clicking the "Activate" link.
-* No further setup or configuration is necessary.
-
 
 == Frequently Asked Questions ==
 
 = Where can I find additional documentation? =
 
-The plugin's official page: http://darrinb.com/advanced-term-fields-images
+The plugin's official page: http://darrinb.com/plugins/advanced-term-images
 
 = Does this plugin depend on any others? =
 
-Yes, this plugin is an extension of the **Advanced Term Fields** framework.  You'll need to install that plugin to handle all base functionality. You can find that plugin here:
-
-* On WP: [Advanced Term Fields](https://wordpress.org/plugins/advanced-term-fields/)
-* On GitHub: [Advanced Term Fields](https://github.com/dboutote/Advanced-Term-Fields)
+Nope!  It _used_ to depend on the Advanced Term Fields plugin, but as of version 1.0, all functionality has been incorporated into this plugin.
 
 = Does this create/modify/destroy database tables? =
 
 This leverages the term meta capabilities added in WordPress 4.4.  No database modifications needed!
 
-= Are there other extensions? =
+= Are there other plugins in this family? =
 
-Yep!  This is a list of all current extensions:
+Yep!  This is a list of all current term meta plugins:
 
-* [Advanced Term Fields: Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
-* [Advanced Term Fields: Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
-* [Advanced Term Fields: Featured Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Colors](https://wordpress.org/plugins/advanced-term-fields-colors/)
+* [Advanced Term Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
+* [Advanced Term Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Locks](https://wordpress.org/plugins/advanced-term-fields-locks/)
 
 == Screenshots ==
 
-1. Custom column to the Tag List Table.
+1. Custom column on the Tag List Table.
 2. Select your image using the native WordPress media picker.
 3. Accessible from the Quick Edit form
 4. Featured Image field on the Edit Tag screen.
 
 
 == Changelog ==
+
+= 1.0 =
+* Incorporated Advanced Term Fields framework into plugin.
+* Namespaced all option keys.
+* WP 4.5 Compatibility updates: added 'load-term.php' action hook.
+* Bug fix: on quick edit form when $taxonomy is not defined.
 
 = 0.1.1 =
 * Added `$meta_slug` property for localizing js files and HTML attributes for form fields.
@@ -87,3 +84,11 @@ Yep!  This is a list of all current extensions:
 
 = 0.1.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.0 =
+This version fixes compatibility issues with WP 4.5.
+
+
+
