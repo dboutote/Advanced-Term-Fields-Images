@@ -50,7 +50,7 @@ This leverages the term meta capabilities added in WordPress 4.4.  No database m
 
 Yep!  This is a list of all current term meta plugins:
 
-* [Advanced Term Colors](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
+* [Advanced Term Colors](https://wordpress.org/plugins/advanced-term-fields-colors/)
 * [Advanced Term Icons](https://wordpress.org/plugins/advanced-term-fields-icons/)
 * [Advanced Term Images](https://wordpress.org/plugins/advanced-term-fields-featured-images/)
 * [Advanced Term Locks](https://wordpress.org/plugins/advanced-term-fields-locks/)
